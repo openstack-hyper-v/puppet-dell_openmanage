@@ -38,9 +38,9 @@
 class dell_openmanage {
 
   class{'dell_openmanage::repository':}
-  class{'dell_openmanage::serveradmin':}
+  class{'dell_openmanage::srvadmin':}
 
 }
   Class['dell_openmanage::repository'] ->
-    Class['dell_openmanage::serveradmin']
+    Class['dell_openmanage::srvadmin']
 

@@ -50,8 +50,8 @@ class dell_openmanage::srvadmin{
                     'srvadmin-storageservices']
 
 
-#  package {'srvadmin-base':
-  package {'srvadmin-all':
+  package {'srvadmin-base':
+#  package {'srvadmin-all':
     ensure => latest,
   }
 }

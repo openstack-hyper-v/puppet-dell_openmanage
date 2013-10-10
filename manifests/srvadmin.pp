@@ -34,7 +34,7 @@ class dell_openmanage::srvadmin{
                     'srvadmin-storage-snmp',
                     'srvadmin-storageservices',
                     'srvadmin-itunnelprovider',
-                    #'srvadmin-all',
+                    'srvadmin-all',
                     'srvadmin-hapi',
                     'srvadmin-deng',
                     'srvadmin-base',

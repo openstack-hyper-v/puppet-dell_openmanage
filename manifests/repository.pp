@@ -52,7 +52,8 @@ class dell_openmanage::repository {
       logoutput => true,
       require   => Exec['download-dell-gpg-key'],
     }
- 
   }
+
+  notify {"${bios_vendor" and  ${manufacturer} are not supported by Dell Tools":}
 
 }

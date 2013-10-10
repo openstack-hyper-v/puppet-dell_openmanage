@@ -54,9 +54,4 @@ class dell_openmanage::srvadmin{
   package {'srvadmin-all':
     ensure => latest,
   }
-  package {$srv_admin_all:
-    ensure => latest,
-  }
-
-
 }

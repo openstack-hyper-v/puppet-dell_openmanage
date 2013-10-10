@@ -1,4 +1,4 @@
-class dell_openmanage::'srvadmin{
+class dell_openmanage::srvadmin{
 
   $srv_admin_all = ['srvadmin-idrac-vmcli',
                     'srvadmin-isvc',
@@ -34,7 +34,7 @@ class dell_openmanage::'srvadmin{
                     'srvadmin-storage-snmp',
                     'srvadmin-storageservices',
                     'srvadmin-itunnelprovider',
-                    'srvadmin-all',
+                    #'srvadmin-all',
                     'srvadmin-hapi',
                     'srvadmin-deng',
                     'srvadmin-base',
@@ -54,5 +54,9 @@ class dell_openmanage::'srvadmin{
   package {'srvadmin-all':
     ensure => latest,
   }
+  package {$srv_admin_all:
+    ensure => latest,
+  }
+
 
 }

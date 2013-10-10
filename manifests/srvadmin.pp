@@ -34,7 +34,7 @@ class dell_openmanage::'srvadmin{
                     'srvadmin-storage-snmp',
                     'srvadmin-storageservices',
                     'srvadmin-itunnelprovider',
-                   #'srvadmin-all',
+                    'srvadmin-all',
                     'srvadmin-hapi',
                     'srvadmin-deng',
                     'srvadmin-base',
@@ -52,10 +52,6 @@ class dell_openmanage::'srvadmin{
 
 #  package {'srvadmin-base':
   package {'srvadmin-all':
-    ensure => latest,
-  }
-
-  package {$srv_admin_all:
     ensure => latest,
   }
 

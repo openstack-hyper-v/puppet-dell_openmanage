@@ -1,4 +1,4 @@
-class basenode::dell_hardware {
+class dell_openmanage::repository {
 
   $dell_repo_packages = ['dell-omsa-repository-2-5','yum-dellsysid']
 

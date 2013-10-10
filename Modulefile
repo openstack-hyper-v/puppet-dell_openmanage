@@ -1,0 +1,8 @@
+name 'puppet-dell_openmanage'
+version '0.0.1'
+source 'https://github.com/openstack-hyper-v/puppet-dell_openmanage.git'
+author 'Peter Pouliot <ppouliot@microsoft.com'
+license 'Apache 2.0'
+summary 'Module for configuring Dell OpenManage'
+description 'Module for configuring Dell OpenManage'
+#dependency 'puppetlabs/ntp'

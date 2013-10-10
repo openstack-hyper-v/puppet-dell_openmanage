@@ -1,4 +1,4 @@
-class dell_openmanage::package{
+class dell_openmanage::serveradmin{
 
   package {'serveradmin-base':
     ensure => latest,

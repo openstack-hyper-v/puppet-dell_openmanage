@@ -54,6 +54,6 @@ class dell_openmanage::repository {
     }
   }
 
-  notify {"${bios_vendor} and  ${manufacturer} are not supported by Dell Tools":}
+  notify {"BIOS VENDOR: ${bios_vendor} MANUFACTURER:${manufacturer}":}
 
 }

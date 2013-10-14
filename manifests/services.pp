@@ -1,17 +1,17 @@
 class dell_openmanage::services {
-  service {'dsm_om_connsvc':
-    ensure  => running,
-    enable  => true,
-    require => Class['dell_openmanage::srvadmin'],
-  }
+#  service {'dsm_om_connsvc':
+#    ensure  => running,
+#    enable  => true,
+#    require => Package['srvadmin-base'],
+#  }
   service {'dsm_om_shrsvc':
     ensure  => running,
     enable  => true,
-    require => Class['dell_openmanage::srvadmin'],
+    require => Package['srvadmin-base'],
   }
   service {'dsm_sa_ipmi':
     ensure  => running,
     enable  => true,
-    require => Class['dell_openmanage::srvadmin'],
+    require => Package['srvadmin-base'],
   }
 }

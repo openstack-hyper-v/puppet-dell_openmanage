@@ -11,7 +11,7 @@ class dell_openmanage::firmware::update {
     command    => '/usr/sbin/update_firmware --yes',
     logoutput  => true,
     timeout    => 0,
-    require    => Package['$(bootstrap_firmware)'],
+    require    => Exec['bootstrap_dell_firmware'],
   }
 
 }

@@ -1,8 +1,10 @@
 class dell_openmanage::firmware::update {
 
-  package {'$(bootstrap_firmware)':
-    ensure  => latest,
-    require => Package['dell_ft_install'],
+  exec {'bootstrap_dell_firmware': 
+    command   => '/usr/bin/yum -y $(bootstrap_firmware)',
+    logoutput => true,
+    timeout   => 0,
+    require   => Package['dell_ft_install'],
   }
 
   exec {'update-dell-firmware':

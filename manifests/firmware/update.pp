@@ -12,6 +12,7 @@ class dell_openmanage::firmware::update {
     logoutput  => true,
     timeout    => 0,
     require    => Exec['bootstrap_dell_firmware'],
+    returns    => 1,
   }
 
 }

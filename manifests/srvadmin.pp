@@ -1,5 +1,7 @@
 class dell_openmanage::srvadmin{
 
+  $dell_update_prereq = ['compat-libstdc++-33.i686','libstdc++.i686','libxml2.i686']
+
   $srv_admin_all = ['srvadmin-idrac-vmcli',
                     'srvadmin-isvc',
                     'srvadmin-argtable',

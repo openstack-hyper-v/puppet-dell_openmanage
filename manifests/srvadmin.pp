@@ -68,10 +68,5 @@ class dell_openmanage::srvadmin{
     ensure => latest,
     require => Exec["dell-openmanage-${osfamily}-repo"]
   }
-  package {'dell_ft_install':
-    ensure => latest,
-    require => Exec["dell-openmanage-${osfamily}-repo"]
-  }
-
 
 }

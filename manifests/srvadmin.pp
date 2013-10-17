@@ -51,9 +51,27 @@ class dell_openmanage::srvadmin{
                     'srvadmin-storelib-sysfs',
                     'srvadmin-storageservices']
 
+  package {$dell_update_prereq:
+    ensure => latest,
+  }
+
 
   package {'srvadmin-base':
     ensure => latest,
     require => Exec["dell-openmanage-${osfamily}-repo"]
   }
+  package {'srvadmin-webserver':
+    ensure => latest,
+    require => Exec["dell-openmanage-${osfamily}-repo"]
+  }
+  package {'srvadmin-storageservices':
+    ensure => latest,
+    require => Exec["dell-openmanage-${osfamily}-repo"]
+  }
+  package {'dell_ft_install':
+    ensure => latest,
+    require => Exec["dell-openmanage-${osfamily}-repo"]
+  }
+
+
 }

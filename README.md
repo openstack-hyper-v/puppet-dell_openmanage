@@ -38,7 +38,7 @@ apply the updates to the node.  Basic installation includes this tool set howeve
 installation of the firmware update tool only may be achieved bye the following:
    
     node foo.contoso.ltd {
-      class {'dell_openmanage::firmware::update':}
+      class {'dell_openmanage::firmware':}
     }
 
 Executing Firmware Detetction and Upgrade

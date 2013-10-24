@@ -1,10 +1,15 @@
 dell_openmanage
 ========
 
-Puppet module to install dell openmanage components for dell servers
-===================================================================
+A Puppet module to install Dell OpenManage 
+============================================================================
 
 This Puppet module installs the Dell OpenManage Repository and Tools.
+
+Information on the Dell OSMA tools can be found here:
+
+  http://linux.dell.com/wiki/index.php/Repository/OSMA
+
 Currently this should work on CentOS/RedHat/ScientificLinux.
 
 Additionally it should also install the Dell tools on Ubuntu/Debian.
@@ -20,16 +25,41 @@ Basic Installation can be achived by adding the class to your node definition.
       class {'dell_openmanage':}
     }
 
+Repository Installation Only
+----------------------------
+
+    node foo.contoso.ltd {
+      class {'dell_openmanage::repository':}
+    }
+
 Upgrading Firmware
 ------------------
 This Module can also be used to download the latest Dell updates and automatically
-apply the updates to the node.
-This can be achieved as follows
+apply the updates to the node.  Basic installation includes this tool set however
+installation of the firmware update tool only may be achieved bye the following:
 
+   
+   node foo.contoso.ltd {
+     class {'dell_openmanage::firmware::update':}
+   }
+
+Executing Firmware Detetction and Upgrade
+-----------------------------------------
+The following can be used to initiate a Firmware Upgrade
 
    node foo.contoso.ltd {
      class {'dell_openmanage::firmware::update':}
    }
+
+
+Additionally you may want to install and upgrade at the same time.
+
+   node foo.contoso.ltd {
+     class {'dell_openmanage':}
+     class {'dell_openmanage::firmware::update':}
+   }
+
+
 
 Contributors
 ------------

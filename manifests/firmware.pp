@@ -1,8 +1,12 @@
 class dell_openmanage::firmware {
+  case $osfamily {
+    'RedHat': { $dell_firmware_tool = 'dell_ft_install' }
+    'Debian': { $dell_firmware_tool = 'firmware-addon-dell' }
+  }
 
-  package {'dell_ft_install':
+  package { $dell_firmware_tool:
     ensure => latest,
-    require => Exec["dell-openmanage-${osfamily}-repo"]
+    require => Class['dell_openmanage::repository'],
   }
 
 }

@@ -50,23 +50,28 @@ class dell_openmanage::srvadmin{
                     'srvadmin-rnasoap',
                     'srvadmin-storelib-sysfs',
                     'srvadmin-storageservices']
-
+if $osfamily == 'RedHat' {
   package {$dell_update_prereq:
     ensure => latest,
   }
-
+}
 
   package {'srvadmin-base':
     ensure => latest,
-    require => Exec["dell-openmanage-${osfamily}-repo"]
+    require => Class['dell_openmanage::repository']
   }
   package {'srvadmin-webserver':
     ensure => latest,
-    require => Exec["dell-openmanage-${osfamily}-repo"]
+    require => Class['dell_openmanage::repository']
   }
   package {'srvadmin-storageservices':
     ensure => latest,
-    require => Exec["dell-openmanage-${osfamily}-repo"]
+    require => Class['dell_openmanage::repository']
   }
+  package {'srvadmin-idracadm':
+    ensure => latest,
+    require => Class['dell_openmanage::repository']
+  }
+
 
 }

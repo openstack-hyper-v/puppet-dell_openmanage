@@ -8,6 +8,7 @@ class dell_openmanage::repository {
       cwd       => '/root', 
       creates   => '/root/DellOpenManageRepo.log',
       logoutput => true,
+      unless    => '/bin/rpm -qa |grep dell-omsa-repository-2-5 2>/dev/null',
     }
 
     package { $dell_repo_packages: 
@@ -16,18 +17,18 @@ class dell_openmanage::repository {
       require => Exec['dell-openmanage-RedHat-repo'],
     }
   }
+ 
 
-  if ( $osfamily == 'Debian') and ( $bios_vendor == 'Dell Inc.') {
-    if $lsbdistid == 'Ubuntu' {
-      exec {'dell-openmanage-Ubuntu-repo':
-        command   => "echo 'deb http://linux.dell.com/repo/community/ubuntu precise openmanage' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list",
-        cwd       => '/root',
-        creates   => '/etc/apt/sources.list.d/linux.dell.com.sources.list',
-        logoutput => true,
-      }
+  if ( $lsbdistid == 'Ubuntu') and ( $bios_vendor == 'Dell Inc.') {
+    exec {'dell-openmanage-Ubuntu-repo':
+      command   => '/bin/echo "deb http://linux.dell.com/repo/community/ubuntu precise openmanage" | /usr/bin/tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list',
+      cwd       => '/root',
+      creates   => '/etc/apt/sources.list.d/linux.dell.com.sources.list',
+      logoutput => true,
     }
+  }
 
-    if $lsbdistid == 'Debian'{
+    if ($lsbdistid == 'Debian') and ( $bios_vendor == 'Dell Inc.' ){
       exec {'dell-openmanage-Debian-repo':
         command   => "echo 'deb http://linux.dell.com/repo/community/ubuntu precise openmanage/730' | sudo tee -a /etc/apt/sources.list.d/linux.dell.com.sources.list",
         cwd       => '/root',
@@ -37,6 +38,7 @@ class dell_openmanage::repository {
     }
 
 
+  if $osfamily == 'Debian' {
     exec {'download-dell-gpg-key':
       command   => '/usr/bin/gpg --keyserver pool.sks-keyservers.net --recv-key 1285491434D8786F',
       cwd       => '/root',

@@ -4,11 +4,11 @@ class dell_openmanage::services {
 #    enable  => true,
 #    require => Package['srvadmin-base'],
 #  }
-  service {'dsm_om_shrsvc':
-    ensure  => running,
-    enable  => true,
-    require => Package['srvadmin-base'],
-  }
+#  service {'dsm_om_shrsvc':
+#    ensure  => running,
+#    enable  => true,
+#    require => Package['srvadmin-base'],
+#  }
   service {'dsm_sa_ipmi':
     ensure  => running,
     enable  => true,

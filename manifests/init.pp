@@ -42,9 +42,9 @@ class dell_openmanage {
   class{'dell_openmanage::services':}
   class{'dell_openmanage::firmware':}
 
-}
   Class['dell_openmanage::repository'] ->
     Class['dell_openmanage::srvadmin']   ->
       Class['dell_openmanage::services']   ->
         Class['dell_openmanage::firmware']
+}
 

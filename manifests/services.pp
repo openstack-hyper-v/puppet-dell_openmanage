@@ -1,3 +1,4 @@
+# == Class: dell_openmanage::services
 class dell_openmanage::services {
 #  service {'dsm_om_connsvc':
 #    ensure  => running,

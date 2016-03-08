@@ -1,6 +1,7 @@
+# == Class dell_openmanage::firmware::update
 class dell_openmanage::firmware::update {
 
-  exec {'bootstrap_dell_firmware': 
+  exec {'bootstrap_dell_firmware':
     command   => '/usr/bin/yum -y install $(bootstrap_firmware)',
     logoutput => true,
     timeout   => 0,

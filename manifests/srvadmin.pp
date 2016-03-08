@@ -1,3 +1,4 @@
+# == Class: dell_openmanage::srvadmin
 class dell_openmanage::srvadmin{
 
   $dell_update_prereq = ['compat-libstdc++-33.i686','libstdc++.i686','libxml2.i686']
@@ -50,26 +51,26 @@ class dell_openmanage::srvadmin{
                     'srvadmin-rnasoap',
                     'srvadmin-storelib-sysfs',
                     'srvadmin-storageservices']
-if $osfamily == 'RedHat' {
+if $::osfamily == 'RedHat' {
   package {$dell_update_prereq:
     ensure => latest,
   }
 }
 
   package {'srvadmin-base':
-    ensure => latest,
+    ensure  => latest,
     require => Class['dell_openmanage::repository']
   }
   package {'srvadmin-webserver':
-    ensure => latest,
+    ensure  => latest,
     require => Class['dell_openmanage::repository']
   }
   package {'srvadmin-storageservices':
-    ensure => latest,
+    ensure  => latest,
     require => Class['dell_openmanage::repository']
   }
   package {'srvadmin-idracadm':
-    ensure => latest,
+    ensure  => latest,
     require => Class['dell_openmanage::repository']
   }
 

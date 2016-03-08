@@ -1,11 +1,12 @@
+# == Class: dell_openmanage::params
 class dell_openmanage::params {
-case $manufacturer {
+case $::manufacturer {
   'Dell Inc.':{
-    case $osfamily {
+    case $::osfamily {
       'RedHat':{
       }
       'Debian':{
-        case $lsbdistid {
+        case $::lsbdistid {
           'Debian':{
           }
           'Ubuntu':{
@@ -16,11 +17,11 @@ case $manufacturer {
         warn('This module does not support Windows')
       }
       default:{
-        warn("This module does not support your operating system family $osfamily")
+        warn("This module does not support your operating system family ${::osfamily}")
       }
     }
   }
   default: {
-    fail("Manufacturer ${manufacturer} is not supported by this Puppet Module")
+    fail("Manufacturer ${::manufacturer} is not supported by this Puppet Module")
   }
 }
